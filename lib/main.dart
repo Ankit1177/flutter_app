@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 //ankit
 
 void main() {
+
+  
   runApp(MyApp());
 }
 
@@ -72,8 +74,8 @@ class MyApp extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text('Title'),
-                        SizedBox(height: 8.0),
+                        Text('login'),
+                        SizedBox(height: 2.0),
                         Text('Secondary Text'),
                       ],
                     ),
@@ -96,8 +98,8 @@ class MyApp extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text('Title'),
-                        SizedBox(height: 8.0),
+                        Text('password'),
+                        SizedBox(height: 2.0),
                         Text('Secondary Text'),
                       ],
                     ),
@@ -120,8 +122,8 @@ class MyApp extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text('Title'),
-                        SizedBox(height: 8.0),
+                        Text('email'),
+                        SizedBox(height: 2.0),
                         Text('Secondary Text'),
                       ],
                     ),
