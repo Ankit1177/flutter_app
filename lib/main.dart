@@ -1,157 +1,81 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_tutorials/widgets/nav-drawer.dart';
-//ankit
 
-void main() {
-  runApp(MyApp());
-}
+import 'dart:math';
 
-class NavDrawer extends StatelessWidget {
+void main() => runApp(new MyApp());
+
+String s = " \$ & # ";
+
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        // Important: Remove any padding from the ListView.
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            child: Text('Drawer Header'),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-          ),
-          ListTile(
-            title: Text('Item 1'),
-            onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Item 2'),
-            onTap: () {
-              // Update the state of the app
-              // ...
-              // Then close the drawer
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      ),
-    );
-  }
+  _MyAppState createState() => _MyAppState();
 }
 
-class MyApp extends StatelessWidget {
+class _MyAppState extends State<MyApp> {
+  GlobalKey<FormState> _key = new GlobalKey();
+
+  TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        drawer: NavDrawer(),
-        appBar: AppBar(title: Text('My First App')),
-        backgroundColor: Colors.white,
-        body: GridView.count(
-          crossAxisCount: 2,
-          padding: EdgeInsets.all(16.0),
-          childAspectRatio: 8.0 / 9.0,
-          children: <Widget>[
-            Card(
-              color: Colors.redAccent,
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('login'),
-                        SizedBox(height: 2.0),
-                        Text('Secondary Text'),
-                      ],
-                    ),
-                  ),
-                ],
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Login'),
+        ),
+        body: Center(
+          child: new SingleChildScrollView(
+            child: new Container(
+              margin: new EdgeInsets.all(15.0),
+              child: new Container(
+                key: _key,
+                child: FormUI(),
               ),
             ),
-            Card(
-              color: Colors.redAccent,
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  // AspectRatio(
-                  //   aspectRatio: 18.0 / 11.0,
-                  //   child: Image.asset('assets/diamond.png'),
-                  // ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('password'),
-                        SizedBox(height: 2.0),
-                        Text('Secondary Text'),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Card(
-              color: Colors.redAccent,
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  // AspectRatio(
-                  //   aspectRatio: 18.0 / 11.0,
-                  //   child: Image.asset('assets/diamond.png'),
-                  // ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('email'),
-                        SizedBox(height: 2.0),
-                        Text('Secondary Text'),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Card(
-              color: Colors.redAccent,
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  // AspectRatio(
-                  //   aspectRatio: 18.0 / 11.0,
-                  //   child: Image.asset('assets/diamond.png'),
-                  // ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('Title'),
-                        SizedBox(height: 8.0),
-                        Text('Secondary Text'),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget FormUI() {
+    return new Column(
+      children: <Widget>[
+        new Card(
+          color: Color(0xFF7A54FF).withOpacity(0.9),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.all(100.0),
+                padding: const EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white, width: 5),
+                  color: Color(0xFF7A54FF),
+                  shape: BoxShape.circle,
+                ),
+                child: Text(
+                  "8.00",
+                  style: TextStyle(
+                    color: Color(0xFFFFFFFF).withOpacity(0.9),
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Text(
+                " UNTIL BREAK ",
+                style: TextStyle(
+                  color: Color(0xFFFFFFFF).withOpacity(0.9),
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
